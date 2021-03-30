@@ -1,11 +1,3 @@
-@ui @healthcheck
-Feature: E-commerce Project Web Site Health Check
-     
-  Scenario: User is able to Open the browser, navigate to the URL and Search for Product
-    Given User navigated to the home application url
-    When User Search for product "Laptop"
-    Then Search Result page is displayed
-
 #Author: your.email@your.domain.com
 #Keywords Summary :
 #Feature: List of scenarios.
@@ -24,5 +16,20 @@ Feature: E-commerce Project Web Site Health Check
 #""
 ## (Comments)
 #Sample Feature Definition Template
+@ui @healthcheck
+Feature: E-commerce Project Web Site Health Check
+     
+  Scenario: User is able to Open the browser, navigate to the URL and Search for Product
+    Given User navigated to the home application url
+    When User Search for product "Laptop"
+    Then Search Result page is displayed
+    
+    @t
+  Scenario: User able to open browser
+  	Given User navigated to the home application url
+  	When click on fashion category on home page
+  	Then Fashion page is displayed 
+  	
 
+		
 		

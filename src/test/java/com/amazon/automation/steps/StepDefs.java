@@ -2,6 +2,7 @@ package com.amazon.automation.steps;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,8 +15,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
 import java.util.concurrent.TimeUnit;
 
 public class StepDefs {
@@ -63,6 +62,23 @@ public class StepDefs {
     	Assert.assertEquals("page title validation","Amazon.in : Laptop",driver.getTitle());
     	
     }
+    
+    @When("click on fashion category on home page")
+    public void click_on_fashion_category()
+    {
+    	WebElement FashionLinkBtn = driver.findElement(By.xpath("//div[@id='nav-xshop']//a[text()='Fashion']"));
+    	FashionLinkBtn.click();
+    }
+    @Then("Fashion page is displayed")
+    public void Fashion_page_is_displayed()
+    {
+    	WebDriverWait webDriverWait = new WebDriverWait(driver,20);
+    	webDriverWait.until(ExpectedConditions.titleIs("Amazon Fashion: Clothing, Footwear and Accessories online for Men, Women and Kids"));
+    	Assert.assertEquals("Page Title not match","Amazon Fashion: Clothing, Footwear and Accessories online for Men, Women and Kids",driver.getTitle());	
+    }
+    
+
+    
     
     
     
