@@ -107,19 +107,19 @@ public class StepDefs {
     	WebElement Digital_xpert_CheckBox = driver.findElement(By.xpath("//div[@class='a-section a-spacing-none']//a[@class='a-link-normal']//span[text()='Digital Xpert']"));
     	Digital_xpert_CheckBox.click();
     }
-    @And("click on In Price section select 10,000- 20,000")
+    @And("click on In Price section select Over 20,000")
     public void Price_range()
     {
-    	WebElement Price_range_link = driver.findElement(By.xpath("//div[@id='priceRefinements']/ul/li/span/a/span[text()='₹10,000 - ₹20,000']"));
+    	WebElement Price_range_link = driver.findElement(By.xpath("//div[@id='priceRefinements']/ul/li/span/a/span[text()='Over ₹20,000']"));
     	Price_range_link.click();
     	
     }
-    @Then("Check one product is displayed")
+    @Then("12 product are displayed")
     public void Check_product_Displayed()
     {
     	List<WebElement> ListOfProduct = driver.findElements(By.xpath("//div[@class='a-section aok-relative s-image-square-aspect']"));
     	
-    	Assert.assertEquals("Products not match",1,ListOfProduct.size());
+    	Assert.assertEquals("Products not match",12,ListOfProduct.size());
     	
     }   
    

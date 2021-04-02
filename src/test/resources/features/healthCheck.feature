@@ -30,14 +30,14 @@ Feature: E-commerce Project Web Site Health Check
   	When click on fashion category on home page
   	Then Fashion page is displayed
   	
-  	@ttt
+  	@Filter_Produtc
   Scenario: Products Filter	
   	Given User navigated to the home application url
   	When Click on Electronics
   	Then Hover the Cameras Category click on nikon camera
   	And Click on In seller section select Digital Xpert
-  	And click on In Price section select 10,000- 20,000
-  	Then Check one product is displayed 
+  	And click on In Price section select Over 20,000
+  	Then  12 product are displayed 
   	
 
 		
