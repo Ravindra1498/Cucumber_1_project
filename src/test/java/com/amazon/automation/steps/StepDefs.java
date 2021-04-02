@@ -88,14 +88,13 @@ public class StepDefs {
     	WebElement Electronics = driver.findElement(By.xpath("//div[@id='nav-xshop']/a[text()=' Electronics ']"));
     	Electronics.click();
     }
-    @Then("Hover the Cameras Category click on nikon camera")
+    @And("Hover the Cameras Category click on nikon camera")
     public void Hover_the_Cameras_Category() throws InterruptedException
     {
     	Actions actions = new Actions(driver);
     	
     	WebElement camerasHover = driver.findElement(By.xpath("//div[@id='nav-subnav']//a/span[contains(text(),'Cameras')]"));
     	actions.moveToElement(camerasHover).build().perform();
-    	WebDriverWait webDriverWait3 = new WebDriverWait(driver,20);
     	WebElement nikonCamera = driver.findElement(By.xpath("//div[@class='nav-template nav-flyout-content']/div[@class='mega-menu']/div/ul/li/a[text()='Nikon ']"));
     	nikonCamera.click();
     	

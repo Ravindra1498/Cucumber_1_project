@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         features="classpath:features",
         glue="com.amazon.automation.steps",
-        tags="@Filter_Produtc", 
+        tags="@Filter_Product", 
         plugin = {
         	"pretty", 
             "html:target/html/htmlreport.html",
