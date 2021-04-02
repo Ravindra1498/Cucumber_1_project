@@ -2,7 +2,7 @@ package com.amazon.automation.steps;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,8 +13,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.lang.System.Logger;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class StepDefs {
@@ -22,6 +26,7 @@ public class StepDefs {
     WebDriver driver;
     String base_url = "https://amazon.in";
     int implicit_wait_timeout_in_sec = 20;
+    
 
  
     @Before
@@ -77,10 +82,45 @@ public class StepDefs {
     	Assert.assertEquals("Page Title not match","Amazon Fashion: Clothing, Footwear and Accessories online for Men, Women and Kids",driver.getTitle());	
     }
     
+    @When("Click on Electronics")
+    public void Click_on_electronics()
+    {
+    	WebElement Electronics = driver.findElement(By.xpath("//div[@id='nav-xshop']/a[text()=' Electronics ']"));
+    	Electronics.click();
+    }
+    @Then("Hover the Cameras Category click on nikon camera")
+    public void Hover_the_Cameras_Category() throws InterruptedException
+    {
+    	Actions actions = new Actions(driver);
+    	
+    	WebElement camerasHover = driver.findElement(By.xpath("//div[@id='nav-subnav']//a/span[contains(text(),'Cameras')]"));
+    	actions.moveToElement(camerasHover).build().perform();
+    	WebDriverWait webDriverWait3 = new WebDriverWait(driver,20);
+    	WebElement nikonCamera = driver.findElement(By.xpath("//div[@class='nav-template nav-flyout-content']/div[@class='mega-menu']/div/ul/li/a[text()='Nikon ']"));
+    	nikonCamera.click();
+    	
+    }
 
-    
-    
-    
-    
+    @And("Click on In seller section select Digital Xpert")
+    public void Checkbox_select_digital_xpert()
+    {
+    	WebElement Digital_xpert_CheckBox = driver.findElement(By.xpath("//div[@class='a-section a-spacing-none']//a[@class='a-link-normal']//span[text()='Digital Xpert']"));
+    	Digital_xpert_CheckBox.click();
+    }
+    @And("click on In Price section select 10,000- 20,000")
+    public void Price_range()
+    {
+    	WebElement Price_range_link = driver.findElement(By.xpath("//div[@id='priceRefinements']/ul/li/span/a/span[text()='₹10,000 - ₹20,000']"));
+    	Price_range_link.click();
+    	
+    }
+    @Then("Check one product is displayed")
+    public void Check_product_Displayed()
+    {
+    	List<WebElement> ListOfProduct = driver.findElements(By.xpath("//div[@class='a-section aok-relative s-image-square-aspect']"));
+    	
+    	Assert.assertEquals("Products not match",1,ListOfProduct.size());
+    	
+    }   
    
 }

@@ -18,17 +18,26 @@
 #Sample Feature Definition Template
 @ui @healthcheck
 Feature: E-commerce Project Web Site Health Check
-     
+     @t
   Scenario: User is able to Open the browser, navigate to the URL and Search for Product
     Given User navigated to the home application url
     When User Search for product "Laptop"
     Then Search Result page is displayed
     
-    @t
+    @tt
   Scenario: User able to open browser
   	Given User navigated to the home application url
   	When click on fashion category on home page
-  	Then Fashion page is displayed 
+  	Then Fashion page is displayed
+  	
+  	@ttt
+  Scenario: Products Filter	
+  	Given User navigated to the home application url
+  	When Click on Electronics
+  	Then Hover the Cameras Category click on nikon camera
+  	And Click on In seller section select Digital Xpert
+  	And click on In Price section select 10,000- 20,000
+  	Then Check one product is displayed 
   	
 
 		

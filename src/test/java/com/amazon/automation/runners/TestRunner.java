@@ -9,13 +9,14 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         features="classpath:features",
         glue="com.amazon.automation.steps",
-        tags="@t", 
+        tags="", 
         plugin = {
         	"pretty", 
             "html:target/html/htmlreport.html",
             "json:target/json/file.json",
             },
         publish=true,
+        monochrome = true,
         dryRun=false 
         )
 public class TestRunner {
